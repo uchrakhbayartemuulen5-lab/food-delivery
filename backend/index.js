@@ -7,7 +7,7 @@ import { foodRouter } from "./src/routes/food.js";
 import { orderRouter } from "./src/routes/order.js";
 
 const app = express();
-const PORT = 8000;
+const PORT = 10000;
 
 app.use(cors());
 app.use(express.json());
