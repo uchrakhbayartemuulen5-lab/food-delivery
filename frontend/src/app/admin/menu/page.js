@@ -26,12 +26,12 @@ export default function Home() {
   const [open, setOpen] = useState(false);
   const [items, setItems] = useState([]);
   const [name, setName] = useState("");
-
+  const url = process.env.NEXT_PUBLIC_BACKEND_URL;
   const handleAddCategory = async (e) => {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:8000/category", {
+      const res = await fetch(`${url}/category`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -60,7 +60,7 @@ export default function Home() {
   };
 
   const getData = async () => {
-    const res = await fetch("http://localhost:8000/category");
+    const res = await fetch(`${url}/category`);
     const data = await res.json();
     setItems(data);
   };

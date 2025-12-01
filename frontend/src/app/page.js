@@ -8,10 +8,10 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [items, setitems] = useState([]);
-
+  const url = process.env.NEXT_PUBLIC_BACKEND_URL;
   const getData = async () => {
     try {
-      const res = await fetch("http://localhost:8000/category");
+      const res = await fetch(`${url}/category`);
       const data = await res.json();
       setitems(data);
     } catch (err) {

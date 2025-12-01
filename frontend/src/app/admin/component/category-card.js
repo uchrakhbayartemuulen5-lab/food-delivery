@@ -7,11 +7,11 @@ export const CategoryCard = ({ categoryId, categoryName }) => {
   const [open, setOpen] = useState(false);
   const [dishes, setDishes] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  const url = process.env.NEXT_PUBLIC_BACKEND_URL;
   const fetchDishes = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:8000/food/${categoryId}`);
+      const response = await fetch(`${url}/food/${categoryId}`);
       const data = await response.json();
 
       console.log(data, "dsfdsfds");

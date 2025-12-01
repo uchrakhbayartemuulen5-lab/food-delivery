@@ -3,7 +3,6 @@ import { Mapicon } from "./icon/mapicon";
 import { useEffect, useState } from "react";
 import { Humanicon } from "./icon/humanicon";
 
-import { Tab } from "./tab";
 import { Sags } from "./sheet";
 import Link from "next/link";
 
@@ -11,7 +10,9 @@ export const MainPage = () => {
   const [state, setState] = useState(false);
   const fetchDishes = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/food/${categoryId}`);
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/food/${categoryId}`
+      );
 
       const data = await response.json();
 
@@ -41,9 +42,7 @@ export const MainPage = () => {
               <h1>Add Location </h1>
             </button>
 
-            <Sags>
-              <Tab />
-            </Sags>
+            <Sags></Sags>
 
             <button className=" gap-3" onClick={() => setState(true)}>
               <Humanicon />
